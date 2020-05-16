@@ -1,4 +1,4 @@
-const mongo = require('./mongo.js');
+const mongo = require('./../src/mongo.js');
 const store = require('app-store-scraper');
  
 

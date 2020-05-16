@@ -1,4 +1,3 @@
-
 const env = process.env.NODE_ENV || 'development';
 const config = require('./config')[env];
 const mongo = require('mongodb');
@@ -47,6 +46,29 @@ exports.insertReviewArray = function(reviewArray){
     });
 }
 
+exports.findAllReviews = function(id) {
+
+    MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
+
+        if (err) throw err;
+    
+        const db = client.db(dataBase);
+    
+        db.collection(reviewsCollection).find({}).toArray().then((docs) => {
+    
+            docs;
+    
+        }).catch((err) => {
+    
+            console.log(err);
+        }).finally(() => {
+    
+            client.close();
+        });
+    });
+
+}
+
 exports.findReviewById = function(id) {
 
     MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
@@ -69,4 +91,13 @@ exports.findReviewById = function(id) {
         });
     });
 
+}
+
+
+exports.findAll = async function dbQuery() {
+    const MongoClient = require('mongodb').MongoClient; 
+    const db = await MongoClient.connect(url);
+    const dbo = db.db(dataBase);
+    const result = await dbo.collection(reviewsCollection).find({}).toArray()
+    return result;
 }
