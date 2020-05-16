@@ -1,7 +1,11 @@
+
+const env = process.env.NODE_ENV || 'development';
+const config = require('./config')[env];
 const mongo = require('mongodb');
+
 const MongoClient = mongo.MongoClient;
-const url = 'mongodb://localhost:27017';
-const dataBase = 'app_sentiment';
+const url = 'mongodb://'+ config.database.host +':'+ config.database.port;
+const dataBase = config.database.db;
 const reviewsCollection = 'reviews';
 
 exports.insertReview = function(doc){
