@@ -1,10 +1,12 @@
+const mongo = require('./mongo.js');
 const express = require("express")
-const knex = require("./config").knex
-const oncatch = require("./config").oncatch
 
 const router = express.Router()
 
-router.get("/list", (req,res) => res.send("List OK"))
+router.get("/all", async (req, res) => {
+    const reviews = await mongo.findAllApps();
+    res.send(reviews);
+});
 
 router.post("/save", (req,res) => res.send("Save Ok"))
 

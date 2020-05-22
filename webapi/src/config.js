@@ -16,7 +16,7 @@ var config = {
       //server details
       server: {
           host: '127.0.0.1',
-          port: '4201'
+          port: '3000'
       }
   },
   production: {
@@ -29,7 +29,7 @@ var config = {
       //server details
       server: {
           host:   '127.0.0.1',
-          port:   '4201'
+          port:   '3000'
       }
   }
 };

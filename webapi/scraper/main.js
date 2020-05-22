@@ -1,15 +1,26 @@
+const mongo = require('./../src/mongo.js');
 const google = require('./google.js');
 const apple = require('./apple.js');
 
-const googleApps = ['com.whatsapp'];
-const appleApps = [310633997];
-
-googleApps.forEach(app => {
-    console.log('Collecting Play Store reviews for : ' + app);
-    google.getAppReview(app);
+mongo.findAllApps().then(apps => {
+    getAppsInfo(apps);
+    getReviews(apps);
 });
 
-appleApps.forEach( app => {
-    console.log('Collecting Apple Store reviews for : ' + app);
-    apple.getAppReview(app)
-});
+function getReviews(apps){
+    apps.forEach(app => {
+        if(app.store === 'google')
+            google.getAppReview(app);
+        if(app.store === 'apple')
+            apple.getAppReview(app)
+    });
+}
+
+function getAppsInfo(apps){
+    apps.forEach(app => {
+        if(app.store === 'google')
+            google.getAppInfo(app);
+        if(app.store === 'apple')
+            apple.getAppInfo(app);
+    });
+}

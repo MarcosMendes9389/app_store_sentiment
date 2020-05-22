@@ -6,98 +6,56 @@ const MongoClient = mongo.MongoClient;
 const url = 'mongodb://'+ config.database.host +':'+ config.database.port;
 const dataBase = config.database.db;
 const reviewsCollection = 'reviews';
+const appsCollection = 'apps';
 
-exports.insertReview = function(doc){
-    MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
-
-        if (err) throw err;
-
-        const db = client.db(dataBase);
-
-        db.collection(reviewsCollection).insertOne(doc).then((doc) => {
-
-        }).catch((err) => {
-
-            console.log(err);
-        }).finally(() => {
-
-            client.close();
-        });
-    });
-
+exports.insertReview = async function(review){    
+    const db = await MongoClient.connect(url);
+    const dbo = db.db(dataBase);
+    dbo.collection(reviewsCollection).insertOne(review);
 }
 
-exports.insertReviewArray = function(reviewArray){
-    MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
-
-        if (err) throw err;
-
-        const db = client.db(dataBase);
-
-        db.collection(reviewsCollection).insertMany(reviewArray).then((doc) => {
-
-        }).catch((err) => {
-
-            console.log(err);
-        }).finally(() => {
-
-            client.close();
-        });
-    });
+exports.insertReviewArray = async function(reviewArray){
+    const db = await MongoClient.connect(url);
+    const dbo = db.db(dataBase);
+    dbo.collection(reviewsCollection).insertMany(reviewArray);
 }
 
-exports.findAllReviews = function(id) {
-
-    MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
-
-        if (err) throw err;
-    
-        const db = client.db(dataBase);
-    
-        db.collection(reviewsCollection).find({}).toArray().then((docs) => {
-    
-            docs;
-    
-        }).catch((err) => {
-    
-            console.log(err);
-        }).finally(() => {
-    
-            client.close();
-        });
-    });
-
+exports.findReviewById = async function(id) {
+    const db = await MongoClient.connect(url);
+    const dbo = db.db(dataBase);
+    const query = { id: id }
+    const result = await dbo.collection(reviewsCollection).findOne(query);
+    return result;
 }
 
-exports.findReviewById = function(id) {
-
-    MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
-
-        if (err) throw err;
-
-        const db = client.db(dataBase);
-
-        let query = { id: id }
-
-        db.collection(reviewsCollection).findOne(query).then(doc => {
-            doc;
-
-        }).catch((err) => {
-
-            console.log(err);
-        }).finally(() => {
-
-            client.close();
-        });
-    });
-
-}
-
-
-exports.findAll = async function dbQuery() {
-    const MongoClient = require('mongodb').MongoClient; 
+exports.findAllReviews = async function () {
     const db = await MongoClient.connect(url);
     const dbo = db.db(dataBase);
     const result = await dbo.collection(reviewsCollection).find({}).toArray()
+    return result;
+}
+
+exports.updateApp = async function(id, app){
+    
+    const db = await MongoClient.connect(url);
+    const dbo = db.db(dataBase);
+    const query = { id: id }
+    const updateQuery = { $set: app };
+    const result = await dbo.collection(appsCollection).updateOne(query, updateQuery);
+    return result;
+}
+
+exports.findAppById = async function(id) {
+    const db = await MongoClient.connect(url);
+    const dbo = db.db(dataBase);
+    const query = { id: id }
+    const result = await dbo.collection(appsCollection).findOne(query);
+    return result;
+}
+
+exports.findAllApps = async function () {
+    const db = await MongoClient.connect(url);
+    const dbo = db.db(dataBase);
+    const result = await dbo.collection(appsCollection).find({}).toArray()
     return result;
 }
