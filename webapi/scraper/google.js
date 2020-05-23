@@ -12,8 +12,12 @@ exports.getAppReview = function(app){
     reviews.forEach(review => {
       mongo.findReviewById(review.id).then(mongoReview => {
         if(!mongoReview){
-          review.store = 'google';
-          mongo.insertReview(review);
+          var doc = new Object();
+          doc.id = review.id;
+          doc.text = review.text;
+          doc.score = review.score;
+          doc.store = 'google';
+          mongo.insertReview(doc);
         }
       });
     });
