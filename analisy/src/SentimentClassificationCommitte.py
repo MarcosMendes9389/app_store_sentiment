@@ -2,10 +2,9 @@ from __future__ import print_function
 import pandas
 from sklearn import model_selection
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
-from sklearn.svm import SVC
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression, SGDClassifier 
+
 from sklearn.feature_extraction.text import CountVectorizer
 import pickle
 
@@ -25,10 +24,10 @@ def run():
    validation_size = 0.30
    seed = 7
 
-   print('Splitting training and validation ...')
+   print('\nSplitting training and validation ...')
    text_train, text_validation, sentiment_train, sentiment_validation = model_selection.train_test_split(text, sentiment, test_size=validation_size, random_state=seed)
 
-   print('Vectorizing the dataset ...') 
+   print('\nVectorizing the dataset ...') 
    vectorizer = CountVectorizer(analyzer='word')
    text_train_vectorized = vectorizer.fit_transform(text_train)
 
@@ -54,45 +53,42 @@ def run():
    print(classification_report(sentiment_validation, prediction))
    save_model(multinomialNBModel, 'Multinomial_NB')    
 
-   print('\nRunning Random Forest ...')
-   randomForestClassifierModel = RandomForestClassifier(max_depth=2, random_state=0)
-   randomForestClassifierModel.fit(text_train_vectorized, sentiment_train)
-   prediction = randomForestClassifierModel.predict(vectorizer.transform(text_validation))
-   rfAccuracy = accuracy_score(sentiment_validation, prediction)
-   print('\nResult Random Forest')
-   print('Accuracy: %f' % rfAccuracy)
+   print('\nRunning SGD ...')
+   sgdClassifierModel = SGDClassifier()
+   sgdClassifierModel.fit(text_train_vectorized, sentiment_train)
+   prediction = sgdClassifierModel.predict(vectorizer.transform(text_validation))
+   sgdAccuracy = accuracy_score(sentiment_validation, prediction)
+   print('\nResult SGD')
+   print('Accuracy: %f' % sgdAccuracy)
    print(confusion_matrix(sentiment_validation, prediction))
    print(classification_report(sentiment_validation, prediction))
-   save_model(randomForestClassifierModel, 'Random_Forest')    
+   save_model(sgdClassifierModel, 'SGD')    
 
-   totalAccuracy = rfAccuracy + lrAccuracy + nbAccuracy
+   totalAccuracy = sgdAccuracy + lrAccuracy + nbAccuracy
    predictionCommitte = []
 
 
    print('\nRunning Committe ...')
 
    for i in range(len(text_validation)):
-      logisticRegressionPrediction = logisticRegressionModel.predict(vectorizer.transform([text_validation[i]]))
-      multinomialNBPrediction = multinomialNBModel.predict(vectorizer.transform([text_validation[i]]))
-      randomForestClassifierPrediction = randomForestClassifierModel.predict(vectorizer.transform([text_validation[i]]))
       
       posPercent = 0
       negPercent = 0
 
-      if logisticRegressionPrediction == 'pos':
+      if logisticRegressionModel.predict(vectorizer.transform([text_validation[i]])) == 'pos':
          posPercent = posPercent + lrAccuracy/totalAccuracy
       else:
          negPercent = negPercent + lrAccuracy/totalAccuracy
 
-      if multinomialNBPrediction == 'pos':
+      if multinomialNBModel.predict(vectorizer.transform([text_validation[i]])) == 'pos':
          posPercent = posPercent + nbAccuracy/totalAccuracy
       else:
          negPercent = negPercent + nbAccuracy/totalAccuracy
 
-      if randomForestClassifierPrediction == 'pos':
-         posPercent = posPercent + rfAccuracy/totalAccuracy
+      if sgdClassifierModel.predict(vectorizer.transform([text_validation[i]])) == 'pos':
+         posPercent = posPercent + sgdAccuracy/totalAccuracy
       else:
-         negPercent = negPercent + rfAccuracy/totalAccuracy
+         negPercent = negPercent + sgdAccuracy/totalAccuracy
 
       if posPercent >= negPercent:
          predictionCommitte = predictionCommitte + ['pos']
