@@ -17,6 +17,7 @@ exports.getAppReview = function(app){
                         doc.id = review.id;
                         doc.text = review.text;
                         doc.score = review.score;
+                        doc.app = app.name;
                         doc.store = 'apple';
                         mongo.insertReview(doc);
                     }
