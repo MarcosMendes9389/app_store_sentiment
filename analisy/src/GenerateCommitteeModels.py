@@ -65,10 +65,10 @@ def run():
    save_model(sgdClassifierModel, vectorizer, sgdAccuracy, 'SGD')    
 
    totalAccuracy = lrAccuracy + nbAccuracy + sgdAccuracy
-   predictionCommitte = []
+   predictionCommittee = []
 
 
-   print('\nRunning Committe ...')
+   print('\nRunning Committee ...')
 
    for i in range(len(text_validation)):
       
@@ -91,16 +91,16 @@ def run():
          negPercent = negPercent + sgdAccuracy/totalAccuracy
 
       if posPercent >= negPercent:
-         predictionCommitte = predictionCommitte + ['pos']
+         predictionCommittee = predictionCommittee + ['pos']
       else:
-         predictionCommitte = predictionCommitte + ['neg']  	 
+         predictionCommittee = predictionCommittee + ['neg']  	 
 
 
-   accuracy = accuracy_score(sentiment_validation, predictionCommitte)
-   print('\nResult Committe')
+   accuracy = accuracy_score(sentiment_validation, predictionCommittee)
+   print('\nResult Committee')
    print('Accuracy: %f' % accuracy)
-   print(confusion_matrix(sentiment_validation, predictionCommitte))
-   print(classification_report(sentiment_validation, predictionCommitte))
+   print(confusion_matrix(sentiment_validation, predictionCommittee))
+   print(classification_report(sentiment_validation, predictionCommittee))
 
 
 def load_data_set():

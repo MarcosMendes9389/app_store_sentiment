@@ -34,7 +34,6 @@ def run():
    else:
       negPercent = negPercent + sgdAccuracy/totalAccuracy
    
-   #Saving committe prediction
    if posPercent >= negPercent:
       print('\nResult: Positivo\n')
    else:

@@ -2,7 +2,7 @@ import pickle
 import pandas
 import ClassifyReviews
 import ClassifyCliEntry
-import GenerateCommitteModels
+import GenerateCommitteeModels
 from sklearn.feature_extraction.text import CountVectorizer
 
 
@@ -10,8 +10,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 def user_interaction():
    while True:
       print('##########################################################\n')
-      print('-> Do you want to enter with attributes to classify ')
-      print('or run again the algorithm selection and save model?\n')
+      print('Choose a option\n')
       print('##########################################################\n')
       print('1 - Classify Line Command Entry')
       print('2 - Generate Models')
@@ -22,7 +21,7 @@ def user_interaction():
       if option == '1':
          ClassifyCliEntry.run()
       if option == '2':
-         GenerateCommitteModels.run() 
+         GenerateCommitteeModels.run() 
       if option == '3':
          ClassifyReviews.run()
       if option == '4':

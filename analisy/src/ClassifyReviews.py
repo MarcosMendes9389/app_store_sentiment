@@ -34,7 +34,7 @@ def run():
          else:
             negPercent = negPercent + sgdAccuracy/totalAccuracy
          
-         #Saving committe prediction
+         #Saving committee prediction
          if posPercent >= negPercent:
             mongo.updateReviewsClassifications(review, 'Positivo')
          else:
