@@ -40,7 +40,7 @@ def run():
    print('Accuracy: %f' % lrAccuracy)
    print(confusion_matrix(sentiment_validation, prediction))
    print(classification_report(sentiment_validation, prediction))
-   save_model(logisticRegressionModel, 'Logistic_Regression')
+   save_model(logisticRegressionModel, vectorizer, lrAccuracy, 'Logistic_Regression')
    
    print('\nRunning Multinomial NB ...')
    multinomialNBModel = MultinomialNB()
@@ -51,7 +51,7 @@ def run():
    print('Accuracy: %f' % nbAccuracy)
    print(confusion_matrix(sentiment_validation, prediction))
    print(classification_report(sentiment_validation, prediction))
-   save_model(multinomialNBModel, 'Multinomial_NB')    
+   save_model(multinomialNBModel, vectorizer, nbAccuracy, 'Multinomial_NB')    
 
    print('\nRunning SGD ...')
    sgdClassifierModel = SGDClassifier()
@@ -62,9 +62,9 @@ def run():
    print('Accuracy: %f' % sgdAccuracy)
    print(confusion_matrix(sentiment_validation, prediction))
    print(classification_report(sentiment_validation, prediction))
-   save_model(sgdClassifierModel, 'SGD')    
+   save_model(sgdClassifierModel, vectorizer, sgdAccuracy, 'SGD')    
 
-   totalAccuracy = sgdAccuracy + lrAccuracy + nbAccuracy
+   totalAccuracy = lrAccuracy + nbAccuracy + sgdAccuracy
    predictionCommitte = []
 
 
@@ -110,8 +110,8 @@ def load_data_set():
    dataset = pandas.read_csv(url, names=names, header=0)
    return dataset
 
-def save_model(algorithm, model_name):
+def save_model(algorithm, vectorizer, accuracy, model_name):
     # Saving model
     print('Saving model ' + model_name)
-    pickle.dump(algorithm, open('../classification_model/' + model_name +'_model.sav', 'wb'))
+    pickle.dump((algorithm, vectorizer, accuracy), open('../classification_model/' + model_name +'_model.sav', 'wb'))
     print('Model saved (' + model_name +'_model.sav) in folder classification_model/')
