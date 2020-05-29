@@ -1,5 +1,7 @@
 from __future__ import print_function
 import pandas
+import os.path
+import urllib.request
 from sklearn import model_selection
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.naive_bayes import MultinomialNB
@@ -21,7 +23,7 @@ def run():
    text = dataset['text_pt'].values
    sentiment = dataset['sentiment'].values
 
-   validation_size = 0.30
+   validation_size = 0.10
    seed = 7
 
    print('\nSplitting training and validation ...')
@@ -104,14 +106,27 @@ def run():
 
 
 def load_data_set():
+   
+   if not os.path.exists('../data/imdb-reviews-pt-br.csv'):
+      downloadDataset()
+   
    url = '../data/imdb-reviews-pt-br.csv'
-   #url = 'https://doc-0k-94-docs.googleusercontent.com/docs/securesc/h834jipfsv4sk0m8b3i8f7lubjkce2i0/bubhq16e424te0alr4b7h1asa56dts7a/1590243075000/09024457658019831713/09024457658019831713/1c9mevJHx-sAwAUT-qRwYXVfyBIDhITc6?e=download&authuser=0&nonce=0qbku6hdggags&user=09024457658019831713&hash=pjdvmpva0676u12sh3r6nkrl6obbv6gp'
    names = ['id', 'text_en', 'text_pt', 'sentiment']
    dataset = pandas.read_csv(url, names=names, header=0)
    return dataset
+
+def downloadDataset():
+   
+   print('Downloading Dataset ...')
+   dataset = urllib.request.urlopen('https://ucb1188cceb2adcc632726a825a0.dl.dropboxusercontent.com/cd/0/get/A4mpVvN8m7Lw_VR4ebQHk7y4ShvJRKlCtFaVt6lEogF8o5EV5ZC3Kl-r4t7OtnllkyrMTvvW1uGulmfjGSHMtzFKcpuBjdqLcBSx5snY7mzDMzipKzv3RjKMdhYhwuQNTss/file?dl=1#')
+   with open('../data/imdb-reviews-pt-br.csv','wb') as output:
+      output.write(dataset.read())
 
 def save_model(algorithm, vectorizer, accuracy, model_name):
     # Saving model
     print('Saving model ' + model_name)
     pickle.dump((algorithm, vectorizer, accuracy), open('../classification_model/' + model_name +'_model.sav', 'wb'))
     print('Model saved (' + model_name +'_model.sav) in folder classification_model/')
+
+if __name__ == '__main__':
+   run()
