@@ -55,12 +55,12 @@ Uma aplicação web desenvolvido com o Framework Angular na linguagem typescript
 Usando a ferramenta [echarts] https://echarts.apache.org/en/index.html que foi todo desenvolvido em JavaScript é possível montar dashboards com e integrar dentro do projeto web. Com isso usuários poderçao montar seus prórprios dashboards com base nos apps cadastrados. Além disso a classificação dos apps possibilita montagem de dash boars em cima da avaliação dos usuários dos apps.
 
 
-<img src="./images/NB.jpg" width="400" height="350">
+<img src="./Images/NB.jpg" width="400" height="350">
 
 
-<img src="./images/RegressaoLogistica.jpg" width="400" height="350">
+<img src="./Images/RegressaoLogistica.jpg" width="400" height="350">
 
 
-<img src="./images/SGD.jpg" width="400" height="350">
+<img src="./Images/SGD.jpg" width="400" height="350">
 
-<img src="./images/commite.jpg" width="800" height="450">
+<img src="./Images/commite.jpg" width="800" height="450">
