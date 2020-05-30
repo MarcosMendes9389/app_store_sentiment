@@ -63,4 +63,4 @@ Usando a ferramenta [echarts] https://echarts.apache.org/en/index.html que foi t
 
 <img src="./Images/SGD.jpg" width="400" height="350">
 
-<img src="./Images/commite.jpg" width="800" height="450">
+<img src="./Images/Commite.jpg" width="800" height="450">
