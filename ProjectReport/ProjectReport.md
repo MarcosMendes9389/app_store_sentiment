@@ -9,8 +9,8 @@ Esse arquivo contem informações sobre o projeto que está sendo executado (nes
 O objetivo deste projeto é mostrar uma avaliação dos apps obtidos das lojas da Apple Store e Google Store usando para isso ferramentas de extração. A classificação é feita com base nos comentários dos usuários. Através de algoritimos de machine Learning é possível extrair qualificação dos comentários. É classificado cada comentário em positivo e negativo. Após classificados será realizada uma interação com os usuários.
 
 Mais informações sobre os Algoritimos de Extração poderá ser encontrado aqui:
-[app-store-scraper](https://www.npmjs.com/package/app-store-scraper#reviews 
-[google-play-scraper](https://www.npmjs.com/package/google-play-scraper#reviews 
+[app-store-scraper](https://www.npmjs.com/package/app-store-scraper#reviews) 
+[google-play-scraper](https://www.npmjs.com/package/google-play-scraper#reviews) 
 
 ### Escopo:
 
@@ -32,7 +32,7 @@ Para classificação dos Dados e obtenção do melhor modelo treinado foram usad
 ## 2. Aquisição e entendimento de Dados
 
 Inicialmente os Dados são baixados e cadastrados numa base. Usando como base o Aplicativo Whatsapp com seus dados extraídos juntamente com seus comentários das lojas Google e Apple. 
-Esse dados foram extraídos das lojas [google] https://play.google.com/store/apps?hl=pt_BR  e [apple] https://apps.apple.com/  
+Esse dados foram extraídos das lojas [google] (https://play.google.com/store/apps?hl=pt_BR)  e [apple] (https://apps.apple.com/)  
 E para o aplicativo Whastapp https://play.google.com/store/apps/details?id=com.whatsapp&hl=pt_BR  e https://apps.apple.com/br/app/whatsapp-messenger/id310633997 
 
 ### Exploração dos Dados com algoritmos de Machine Learning Supervisonados
@@ -52,7 +52,7 @@ Outro CronScheduler roda o algoritmo python para classificar os apps cadastro no
 Uma aplicação web desenvolvido com o Framework Angular na linguagem typescript será responsável por fazer requisições ao servidor. Onde através dessa será possível cadastrar, lista e remover apps. Também será possível navegar nos apps e listas os seus comentários. 
 
 ### Cliente web com Echarts 
-Usando a ferramenta [echarts] https://echarts.apache.org/en/index.html que foi todo desenvolvido em JavaScript é possível montar dashboards com e integrar dentro do projeto web. Com isso usuários poderçao montar seus prórprios dashboards com base nos apps cadastrados. Além disso a classificação dos apps possibilita montagem de dash boars em cima da avaliação dos usuários dos apps.
+Usando a ferramenta [echarts](https://echarts.apache.org/en/index.html) que foi todo desenvolvido em JavaScript é possível montar dashboards com e integrar dentro do projeto web. Com isso usuários poderçao montar seus prórprios dashboards com base nos apps cadastrados. Além disso a classificação dos apps possibilita montagem de dash boars em cima da avaliação dos usuários dos apps.
 
 
 <img src="./Images/NB.jpg" width="400" height="350">
