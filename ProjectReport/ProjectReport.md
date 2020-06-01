@@ -32,7 +32,7 @@ Para classificação dos Dados e obtenção do melhor modelo treinado foram usad
 ## 2. Aquisição e entendimento de Dados
 
 Inicialmente os Dados são baixados e cadastrados numa base. Usando como base o Aplicativo Whatsapp com seus dados extraídos juntamente com seus comentários das lojas Google e Apple. 
-Esse dados foram extraídos das lojas [google] (https://play.google.com/store/apps?hl=pt_BR)  e [apple] (https://apps.apple.com/)  
+Esse dados foram extraídos das lojas [google](https://play.google.com/store/apps?hl=pt_BR)  e [apple](https://apps.apple.com/)  
 E para o aplicativo Whastapp https://play.google.com/store/apps/details?id=com.whatsapp&hl=pt_BR  e https://apps.apple.com/br/app/whatsapp-messenger/id310633997 
 
 ### Exploração dos Dados com algoritmos de Machine Learning Supervisonados
@@ -46,21 +46,110 @@ Foi desenvolvido um servidor com o framework Node.js que receberá as requisiç�
 ### Cron Shcedules 
 Um cron Schedules ficará salvando as demais informações do app a cada período ou através de uma ação do usuário para atualização;
 
-Outro CronScheduler roda o algoritmo python para classificar os apps cadastro no Banco. Após cadastrado é incluído um campo para classificação informando os valores positivo ou negativo
+Outro CronScheduler roda o algoritmo python para classificar os apps cadastro no Banco. Após claissificado é incluído um campo para classificação informando os valores positivo ou negativo
 
 ### Aplicação Web
-Uma aplicação web desenvolvido com o Framework Angular na linguagem typescript será responsável por fazer requisições ao servidor. Onde através dessa será possível cadastrar, lista e remover apps. Também será possível navegar nos apps e listas os seus comentários. 
+Uma aplicação web desenvolvido com o Framework Angular na linguagem typescript será responsável por fazer requisições ao servidor. Onde através dessa será possível cadastrar, lista e remover apps. Também será possível navegar nos apps e listar os seus comentários. 
 
 ### Cliente web com Echarts 
-Usando a ferramenta [echarts](https://echarts.apache.org/en/index.html) que foi todo desenvolvido em JavaScript é possível montar dashboards com e integrar dentro do projeto web. Com isso usuários poderçao montar seus prórprios dashboards com base nos apps cadastrados. Além disso a classificação dos apps possibilita montagem de dash boars em cima da avaliação dos usuários dos apps.
+Usando a ferramenta [echarts](https://echarts.apache.org/en/index.html) que foi todo desenvolvido em JavaScript é possível montar dashboards e integrar dentro do projeto web. Com isso usuários poderão montar seus próprios dashboards com base nos apps cadastrados. Além disso a classificação dos apps possibilita montagem de dashboards em cima da avaliação dos usuários dos apps.
 
+### Modelos Treinados
+Nós usamos 3 algorítimos python de machine learning de modelo supervisionado para uma melhor obtenção de resultados.
 
-<img src="./Images/NB.jpg" width="400" height="350">
+### Avaliação do Modelo
+A precisão de cada modelo foi medida e comparada individualmente e em conjunto de acordo com commitê.
 
+#### Algoritmo de Regressão Logística
 
-<img src="./Images/RegressaoLogistica.jpg" width="400" height="350">
+<code>
+Running Logistic Regression ...
 
+Result Logistic Regression
+Accuracy: 0.881116
+[[2134  287]
+ [ 301 2224]]
+              precision    recall  f1-score   support
 
-<img src="./Images/SGD.jpg" width="400" height="350">
+         neg       0.88      0.88      0.88      2421
+         pos       0.89      0.88      0.88      2525
 
-<img src="./Images/Commite.jpg" width="800" height="450">
+    accuracy                           0.88      4946
+   macro avg       0.88      0.88      0.88      4946
+weighted avg       0.88      0.88      0.88      4946
+
+Saving model Logistic_Regression
+Model saved (Logistic_Regression_model.sav) in folder classification_model/
+</code>
+
+Como foi observado a regressão logística obteve uma precisão de 0.88 para resultados positivos e 0.89 para resultados negativos. E uma acurácia de 0.88
+
+#### Algoritmo Multinomial NB
+
+<code>
+Running Multinomial NB ...
+
+Result Multinomial NB
+Accuracy: 0.844521
+[[2101  320]
+ [ 449 2076]]
+              precision    recall  f1-score   support
+
+         neg       0.82      0.87      0.85      2421
+         pos       0.87      0.82      0.84      2525
+
+    accuracy                           0.84      4946
+   macro avg       0.85      0.85      0.84      4946
+weighted avg       0.85      0.84      0.84      4946
+
+Saving model Multinomial_NB
+Model saved (Multinomial_NB_model.sav) in folder classification_model/
+</code>
+
+Como foi observado o NB obteve uma precisão de 0.82 para resultados positivos e 0.87 para resultados negativos. E uma acurácia de 0.84
+
+#### Algoritmo  SGD
+
+<code>
+Running SGD ...
+
+Result SGD
+Accuracy: 0.878488
+[[2123  298]
+ [ 303 2222]]
+              precision    recall  f1-score   support
+
+         neg       0.88      0.88      0.88      2421
+         pos       0.88      0.88      0.88      2525
+
+    accuracy                           0.88      4946
+   macro avg       0.88      0.88      0.88      4946
+weighted avg       0.88      0.88      0.88      4946
+
+Saving model SGD
+Model saved (SGD_model.sav) in folder classification_model/
+</code>
+
+Como foi observado o SGD obteve uma precisão de 0.88 para resultados positivos e 0.88 para resultados negativos. E uma acurácia de 0.88
+
+#### Committe
+
+<code>
+Running Committee ...
+
+Result Committee
+Accuracy: 0.884351
+[[2139  282]
+ [ 290 2235]]
+              precision    recall  f1-score   support
+
+         neg       0.88      0.88      0.88      2421
+         pos       0.89      0.89      0.89      2525
+
+    accuracy                           0.88      4946
+   macro avg       0.88      0.88      0.88      4946
+weighted avg       0.88      0.88      0.88      4946
+</code>
+
+Como foi observado o Committe obteve uma precisão de 0.89 para resultados positivos e 0.89 para resultados negativos. E uma acurácia de 0.88.
+Chegando a conclusão que a combinação dos 3 algoritmos obteve um melhor resultado em relação aos 3 individualmente.
