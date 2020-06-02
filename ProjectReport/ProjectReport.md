@@ -62,9 +62,9 @@ A precisão de cada modelo foi medida e comparada individualmente e em conjunto 
 
 #### Algoritmo de Regressão Logística
 
-<code>Running Logistic Regression ...
+'''Running Logistic Regression ...
 
-Result Logistic Regression</code>
+Result Logistic Regression
 Accuracy: 0.881116
 [[2134  287]
  [ 301 2224]]
@@ -79,7 +79,7 @@ weighted avg       0.88      0.88      0.88      4946
 
 Saving model Logistic_Regression
 Model saved (Logistic_Regression_model.sav) in folder classification_model/
-</code>
+'''
 
 Como foi observado a regressão logística obteve uma precisão de 0.88 para resultados positivos e 0.89 para resultados negativos. E uma acurácia de 0.88
 
