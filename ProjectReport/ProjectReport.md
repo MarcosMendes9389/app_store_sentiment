@@ -86,7 +86,7 @@ Como foi observado a regressão logística obteve uma precisão de 0.88 para res
 
 #### Algoritmo Multinomial NB
 
-<code>
+```python
 Running Multinomial NB ...
 
 Result Multinomial NB
@@ -104,13 +104,13 @@ weighted avg       0.85      0.84      0.84      4946
 
 Saving model Multinomial_NB
 Model saved (Multinomial_NB_model.sav) in folder classification_model/
-</code>
+```
 
 Como foi observado o NB obteve uma precisão de 0.82 para resultados positivos e 0.87 para resultados negativos. E uma acurácia de 0.84
 
 #### Algoritmo  SGD
 
-<code>
+```python
 Running SGD ...
 
 Result SGD
@@ -128,13 +128,13 @@ weighted avg       0.88      0.88      0.88      4946
 
 Saving model SGD
 Model saved (SGD_model.sav) in folder classification_model/
-</code>
+```
 
 Como foi observado o SGD obteve uma precisão de 0.88 para resultados positivos e 0.88 para resultados negativos. E uma acurácia de 0.88
 
 #### Committe
 
-<code>
+```python
 Running Committee ...
 
 Result Committee
@@ -149,7 +149,7 @@ Accuracy: 0.884351
     accuracy                           0.88      4946
    macro avg       0.88      0.88      0.88      4946
 weighted avg       0.88      0.88      0.88      4946
-</code>
+```
 
 Como foi observado o Committe obteve uma precisão de 0.89 para resultados positivos e 0.89 para resultados negativos. E uma acurácia de 0.88.
 Chegando a conclusão que a combinação dos 3 algoritmos obteve um melhor resultado em relação aos 3 individualmente.
