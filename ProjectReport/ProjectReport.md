@@ -62,7 +62,8 @@ A precisão de cada modelo foi medida e comparada individualmente e em conjunto 
 
 #### Algoritmo de Regressão Logística
 
-'''Running Logistic Regression ...
+'''
+Running Logistic Regression ...
 
 Result Logistic Regression
 Accuracy: 0.881116
