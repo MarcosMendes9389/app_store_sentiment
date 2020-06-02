@@ -1,4 +1,4 @@
-# Data Science Project Report: Extração de Dados dos aplicativos das lojas iTunes/Mac App Store e  Google Play store. Obter a melhor acurácia sobre os dados com a combinação de algoritmos de Machine Learning. Para avaliação dos apps quanto a satisfação dos usuários.
+# Data Science Project Report: Extração de Dados dos aplicativos das lojas iTunes/Mac App Store e Google Play store. Obter a melhor acurácia sobre os dados com a combinação de algoritmos de Machine Learning. Para avaliação dos apps quanto a satisfação dos usuários.
 
 Esse arquivo contem informações sobre o projeto que está sendo executado (neste caso, Obtenção de dados das lojas iTunes/Mac App Store e  Google Play store, e avaliação através dos comentários usando um comitê de algoritmos de machine learning)
 
