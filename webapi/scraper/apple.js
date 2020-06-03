@@ -7,7 +7,7 @@ exports.getAppReview = function(app){
     console.log('Collecting Apple Store reviews for : ' + app.name);
 
     for (i = 0; i <= 10; i++) {
-        store.reviews({id: app.id, country: 'br', sort: store.sort.RECENT})
+        store.reviews({id: app.id, country: 'br', sort: store.sort.RECENT, page: i})
         .then((reviews) => {
             console.log('Saving reviews for : ' + app.name + ' - ' + app.store );
             reviews.forEach(review => {
