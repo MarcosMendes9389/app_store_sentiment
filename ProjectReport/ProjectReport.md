@@ -153,3 +153,27 @@ weighted avg       0.88      0.88      0.88      4946
 
 Como foi observado o Committe obteve uma precisão de 0.89 para resultados positivos e 0.89 para resultados negativos. E uma acurácia de 0.88.
 Chegando a conclusão que a combinação dos 3 algoritmos obteve um melhor resultado em relação aos 3 individualmente.
+
+## 4. Desenvolvimento
+
+Com o desenvolvimento de uma Api node.js foi possível controlar as requisições provindas de um cliente. Onde ocorre onde ocorrem as requisições do tipo cadastro de um novo App, listagem remoção do mesmo. E listagem das Reviews dos usuários por app.
+
+Os dados são salvos numa Base [MongoDb](https://www.mongodb.com/)  no formato json.
+
+Para o frontend foi usado o framework Angular;
+
+## Controle de Versão e Repositório
+
+Para controle de versão foi usado a ferramenta Git e para hospedagem de o projeto foi usada a plataforma Github. Onde para cada participante do projeto foi criada uma Branch. 
+Ao término de um MVP foram realizados os merges de todas as Branchs com a Master, acompanhado do relatório do projeto.
+
+### Código de Execução
+
+Na imagem abaixo segue um exemplo do código projeto utilizando a IDE Visual Studio Code.
+Executando a linguagem javasctript do servidor node.js;
+
+<img src="./Images/IDEVisualStudio.png" width="400" height="350">
+
+## Referências
+[Project Repository in GitHub](https://github.com/MarcosMendes9389/app_store_sentiment)
+
