@@ -172,7 +172,7 @@ Ao término de um MVP foram realizados os merges de todas as Branchs com a Maste
 Na imagem abaixo segue um exemplo do código projeto utilizando a IDE Visual Studio Code.
 Executando a linguagem javasctript do servidor node.js;
 
-<img src="./Images/IDEVisualStudio.png" width="400" height="350">
+<img src="./Images/IDEVisualStudio.png" width="500" height="350">
 
 ## Referências
 [Project Repository in GitHub](https://github.com/MarcosMendes9389/app_store_sentiment)
