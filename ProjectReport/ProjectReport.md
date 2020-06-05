@@ -164,12 +164,12 @@ O intuito da API é manter o cadastro dos apps no banco de dados. Um processo ag
 
 #### Tela de Cadastro, listagem e exclusão dos Apps
 
-<img src="./Images/TelaCadastroApps.jpg" width="400" height="350">
+<img src="./Images/TelaCadastroApps.jpg" width="500" height="350">
 
 #### Tela de Listagem dos Comentários
 
 
-<img src="./Images/TelaListagemReviews.jpg" width="400" height="350">
+<img src="./Images/TelaListagemReviews.jpg" width="500" height="350">
 
 *NOTA: Para o frontend foi usado o framework Angular;
 
