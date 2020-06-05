@@ -16,6 +16,7 @@
 
 - Backend server to angular client
 - Scraper: it gets reviews from play store and aple store 
+- See more detail in [README.md](https://github.com/MarcosMendes9389/app_store_sentiment/blob/master/webapi/README.md)
 
 ### About Database
 
