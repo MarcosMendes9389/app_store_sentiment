@@ -65,7 +65,8 @@ exports.findAllApps = async function () {
 exports.insertApp = async function(app){    
     const db = await MongoClient.connect(url);
     const dbo = db.db(dataBase);
-    dbo.collection(appsCollection).insertOne(app);
+    const result = await dbo.collection(appsCollection).insertOne(app);
+    return result;
 }
 
 exports.deleteApp = async function(_id){

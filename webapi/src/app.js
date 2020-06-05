@@ -4,19 +4,19 @@ const express = require("express")
 const router = express.Router()
 
 router.get("/all", async (req, res) => {
-    const reviews = await mongo.findAllApps();
-    res.send(reviews);
+    const app = await mongo.findAllApps();
+    res.send(app);
 });
 
 router.post("/save", async (req,res) => {
-    const app =  await mongo.insertApp(req.body)
-    res.send(app)
+    const app = await mongo.insertApp(req.body)
+    res.send(app.ops[0])
 })
 
 router.put("/update", async (req,res) => {
     let app = req.body
-    app =  await mongo.updateAppById(app._id, app)
-    res.send(app)
+    app = await mongo.updateAppById(app._id, app)
+    res.send(app.ops[0])
 })
 
 router.delete("/delete/:id", async (req,res) => {
