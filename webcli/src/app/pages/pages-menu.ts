@@ -6,8 +6,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'grid-outline',
     children: [
       {
+        title: 'Aplicativos',
+        link: '/pages/tables/application',
+      },
+      {
         title: 'Comentários',
-        link: '/pages/tables/smart-table',
+        link: '/pages/tables/review',
       },
     ],
   },

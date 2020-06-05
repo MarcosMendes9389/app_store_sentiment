@@ -5,11 +5,11 @@ import { Review } from '../../../@core/models/review';
 import { GeneralService } from '../../../@core/services/general.service';
 
 @Component({
-  selector: 'ngx-smart-table',
-  templateUrl: './smart-table.component.html',
-  styleUrls: ['./smart-table.component.scss'],
+  selector: 'ngx-review',
+  templateUrl: './review.component.html',
+  styleUrls: ['./review.component.scss'],
 })
-export class SmartTableComponent {
+export class ReviewComponent {
 
   //reviews
   reviews: Review[] = [];

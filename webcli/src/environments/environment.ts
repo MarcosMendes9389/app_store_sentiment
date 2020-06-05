@@ -10,4 +10,5 @@
 
 export const environment = {
   production: false,
+  WEBAPI_URL: 'http://localhost:3000'
 };

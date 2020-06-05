@@ -11,14 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "app-store-scraper": "0.16.2",
     "body-parser": "^1.18.2",
     "cors": "2.8.5",
     "express": "4.17.1",
-    "knex": "^0.21.1",
-    "morgan": "1.10.0",
-    "mongodb": "^3.5.7",
     "google-play-scraper": "7.1.2",
-    "app-store-scraper": "0.16.2"
+    "knex": "^0.21.1",
+    "mongodb": "^3.5.7",
+    "mongoose": "^5.9.17",
+    "morgan": "1.10.0"
   },
   "devDependencies": {
     "nodemon": "^1.14.12"

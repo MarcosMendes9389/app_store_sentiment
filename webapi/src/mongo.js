@@ -1,6 +1,9 @@
 const env = process.env.NODE_ENV || 'development';
 const config = require('./config')[env];
 const mongo = require('mongodb');
+const Mongoose = require('mongoose')
+const ObjectId = Mongoose.Types.ObjectId;
+
 
 const MongoClient = mongo.MongoClient;
 const url = 'mongodb://'+ config.database.host +':'+ config.database.port;
@@ -36,7 +39,6 @@ exports.findAllReviews = async function () {
 }
 
 exports.updateApp = async function(id, app){
-    
     const db = await MongoClient.connect(url);
     const dbo = db.db(dataBase);
     const query = { id: id }
@@ -57,5 +59,28 @@ exports.findAllApps = async function () {
     const db = await MongoClient.connect(url);
     const dbo = db.db(dataBase);
     const result = await dbo.collection(appsCollection).find({}).toArray()
+    return result;
+}
+
+exports.insertApp = async function(app){    
+    const db = await MongoClient.connect(url);
+    const dbo = db.db(dataBase);
+    dbo.collection(appsCollection).insertOne(app);
+}
+
+exports.deleteApp = async function(_id){
+    const db = await MongoClient.connect(url);
+    const dbo = db.db(dataBase);
+    const query = { _id : ObjectId(_id) }
+    const result = await dbo.collection(appsCollection).deleteOne(query);
+    return result;
+}
+
+exports.updateAppById = async function(_id, app){
+    const db = await MongoClient.connect(url);
+    const dbo = db.db(dataBase);
+    const query = { _id : ObjectId(_id) }
+    const updateQuery = { $set: {id: app.id, name: app.name, store: app.store }};
+    const result = await dbo.collection(appsCollection).updateOne(query, updateQuery);
     return result;
 }

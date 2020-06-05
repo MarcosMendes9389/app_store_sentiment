@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Review } from '../models/review';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { Application } from '../models/application';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +15,24 @@ export class GeneralService {
     private http: HttpClient
   ) { }
 
-  /**
-   * Faz a chamada ao endpoint de reviews
-   */
   listReviews(): Observable<Review[]> {
     return this.http.get<Review[]>(`${this.baseUrl}/review/all`);
+  } 
 
+  listApps(): Observable<Application[]> {
+    return this.http.get<Application[]>(`${this.baseUrl}/app/all`);
   }
 
+  save(app: any): Observable<Application[]> {
+    return this.http.post<Application[]>(`${this.baseUrl}/app/save`, app);
+  }
+
+  update(app: any): Observable<Application[]> {
+    return this.http.put<Application[]>(`${this.baseUrl}/app/update`, app);
+  }
+
+  delete(id: any): Observable<Application[]> {
+    return this.http.delete<Application[]>(`${this.baseUrl}/app/delete/${id}`);
+  }
 }
 
