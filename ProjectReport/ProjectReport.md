@@ -162,16 +162,16 @@ Os dados são salvos numa Base [MongoDb](https://www.mongodb.com/)  no formato j
 
 O intuito da API é manter o cadastro dos apps no banco de dados. Um processo agendado irá executar, recuperar os apps cadastrados e extrair todos atributos através da biblioteca google scraper e Apple Scraper. O processo agendado poderá rodar num período definido.
 
-### Tela de Cadastro, listagem e exclusão dos Apps
+#### Tela de Cadastro, listagem e exclusão dos Apps
 
-<img src="./Images/TelaCadastroApps.jpg" width="500" height="350">
+<img src="./Images/TelaCadastroApps.jpg" width="500" height="400">
 
-### Tela de Listagem dos Comentários
+#### Tela de Listagem dos Comentários
 
 
-<img src="./Images/TelaListagemReviews.jpg" width="500" height="350">
+<img src="./Images/TelaListagemReviews.jpg" width="500" height="400">
 
-Para o frontend foi usado o framework Angular;
+*NOTA: Para o frontend foi usado o framework Angular;
 
 ## Controle de Versão e Repositório
 
