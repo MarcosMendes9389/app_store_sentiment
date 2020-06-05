@@ -160,6 +160,17 @@ Com o desenvolvimento de uma Api node.js foi possível controlar as requisiçõe
 
 Os dados são salvos numa Base [MongoDb](https://www.mongodb.com/)  no formato json.
 
+O intuito da API é manter o cadastro dos apps no banco de dados. Um processo agendado irá executar, recuperar os apps cadastrados e extrair todos atributos através da biblioteca google scraper e Apple Scraper. O processo agendado poderá rodar num período definido.
+
+### Tela de Cadastro, listagem e exclusão dos Apps
+
+<img src="./Images/TelaCadastroApps.jpg" width="500" height="350">
+
+### Tela de Listagem dos Comentários
+
+
+<img src="./Images/TelaListagemReviews.jpg" width="500" height="350">
+
 Para o frontend foi usado o framework Angular;
 
 ## Controle de Versão e Repositório
