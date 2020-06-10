@@ -1,5 +1,8 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { GeneralService } from '../../../@core/services/general.service';
+import { Review } from '../../../@core/models/review';
+import { Application } from '../../../@core/models/application';
 
 @Component({
   selector: 'ngx-echarts-pie',
@@ -10,8 +13,11 @@ import { NbThemeService } from '@nebular/theme';
 export class EchartsPieComponent implements AfterViewInit, OnDestroy {
   options: any = {};
   themeSubscription: any;
+  reviews: Review[] = [];
+  applications: Application[] = [];
 
-  constructor(private theme: NbThemeService) {
+  constructor(private theme: NbThemeService,
+    private servicegeneral : GeneralService,) {
   }
 
   ngAfterViewInit() {
@@ -19,6 +25,12 @@ export class EchartsPieComponent implements AfterViewInit, OnDestroy {
 
       const colors = config.variables;
       const echarts: any = config.variables.echarts;
+
+      this.servicegeneral.listReviews().subscribe(result => {
+      this.reviews = result;
+
+      let listPositivos = this.reviews.filter(review => review.classification === "Positivo");
+      let listNegativos = this.reviews.filter(review => review.classification === "Negativo");
 
       this.options = {
         backgroundColor: echarts.bg,
@@ -30,23 +42,20 @@ export class EchartsPieComponent implements AfterViewInit, OnDestroy {
         legend: {
           orient: 'vertical',
           left: 'left',
-          data: ['USA', 'Germany', 'France', 'Canada', 'Russia'],
+          data: ['Positivo', 'Negativo'],
           textStyle: {
             color: echarts.textColor,
           },
         },
         series: [
           {
-            name: 'Countries',
+            name: 'Classificação',
             type: 'pie',
             radius: '80%',
             center: ['50%', '50%'],
             data: [
-              { value: 335, name: 'Germany' },
-              { value: 310, name: 'France' },
-              { value: 234, name: 'Canada' },
-              { value: 135, name: 'Russia' },
-              { value: 1548, name: 'USA' },
+              { value: listPositivos.length, name: 'Positivo' },
+              { value: listNegativos.length, name: 'Negativo' },
             ],
             itemStyle: {
               emphasis: {
@@ -72,6 +81,9 @@ export class EchartsPieComponent implements AfterViewInit, OnDestroy {
           },
         ],
       };
+      });  
+
+      
     });
   }
 

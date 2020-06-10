@@ -15,4 +15,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+  {
+    title: 'Dashboards',
+    icon: 'pie-chart-outline',
+    children: [
+      {
+        title: 'Gráficos',
+        link: '/pages/charts/echarts',
+        home: true
+      },
+    ],
+  },
 ];
