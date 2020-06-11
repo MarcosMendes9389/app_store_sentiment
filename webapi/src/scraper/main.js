@@ -1,19 +1,23 @@
-const mongo = require('./../src/mongo.js');
+const mongo = require('../mongo.js');
 const google = require('./google.js');
 const apple = require('./apple.js');
 
 mongo.findAllApps().then(apps => {
     getAppsInfo(apps);
-    getReviews(apps);
+    getReviews(apps).then(() => {
+        console.log('Finished all');
+        process.exit(1);
+    }
+    );
 });
 
-function getReviews(apps){
-    apps.forEach(app => {
+async function getReviews(apps){
+    for (app of apps) {
         if(app.store === 'google')
-            google.getAppReview(app);
+            await google.getAppReview(app);
         if(app.store === 'apple')
-            apple.getAppReview(app)
-    });
+            await apple.getAppReview(app)
+    }
 }
 
 function getAppsInfo(apps){

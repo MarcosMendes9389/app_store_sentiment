@@ -66,7 +66,6 @@ export class ApplicationComponent {
 
   onDeleteConfirm(event): void {
     if (window.confirm('Tem certeza que deseja deletar?')) {
-      console.log(event.data._id)
       this.servicegeneral.delete(event.data._id).subscribe(()=>{
         event.confirm.resolve();
       });
@@ -87,8 +86,8 @@ export class ApplicationComponent {
 
   onCreateConfirm(event): void {
     if (window.confirm('Tem certeza que deseja salvar?')) {
-      this.servicegeneral.save(event.newData).subscribe(()=>{
-        event.confirm.resolve();
+      this.servicegeneral.save(event.newData).subscribe(result=>{
+        event.confirm.resolve(result);
       });
     } else {
       event.confirm.reject();
