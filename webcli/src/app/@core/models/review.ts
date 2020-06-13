@@ -4,6 +4,7 @@ export class Review {
     score: number;
     store: string;
     app: string;
+    appId: number;
     classification?: string;
 
     constructor(){}

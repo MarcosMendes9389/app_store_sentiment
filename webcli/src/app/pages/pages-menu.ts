@@ -1,6 +1,13 @@
 import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
+  
+  {
+    title: 'Dashboards',
+    icon: 'pie-chart-outline',
+    link: '/pages/dashboard',
+    home: true,
+  },
   {
     title: 'Tabelas',
     icon: 'grid-outline',
@@ -12,17 +19,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Comentários',
         link: '/pages/tables/review',
-      },
-    ],
-  },
-  {
-    title: 'Dashboards',
-    icon: 'pie-chart-outline',
-    children: [
-      {
-        title: 'Gráficos',
-        link: '/pages/charts/echarts',
-        home: true
       },
     ],
   },

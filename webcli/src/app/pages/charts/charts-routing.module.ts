@@ -8,7 +8,7 @@ const routes: Routes = [{
   path: '',
   component: ChartsComponent,
   children: [{
-    path: 'echarts',
+    path: '',
     component: EchartsComponent,
   }],
 }];

@@ -23,16 +23,27 @@ export class GeneralService {
     return this.http.get<Application[]>(`${this.baseUrl}/app/all`);
   }
 
-  save(app: any): Observable<Application[]> {
+  saveApp(app: any): Observable<Application[]> {
     return this.http.post<Application[]>(`${this.baseUrl}/app/save`, app);
   }
 
-  update(app: any): Observable<Application[]> {
+  updateApp(app: any): Observable<Application[]> {
     return this.http.put<Application[]>(`${this.baseUrl}/app/update`, app);
   }
 
   delete(id: any): Observable<Application[]> {
     return this.http.delete<Application[]>(`${this.baseUrl}/app/delete/${id}`);
   }
-}
 
+  listClassificationAppDatebyDay(): Observable<Application[]> {
+    return this.http.get<Application[]>(`${this.baseUrl}/dashboard/google/classification/app/date`);
+  }
+
+  listRankingAppClassificationPositivo(): Observable<Application[]> {
+    return this.http.get<Application[]>(`${this.baseUrl}/dashboard/ranking/app/classification/positivo`);
+  }
+
+  listRankingAppClassificationNegativo(): Observable<Application[]> {
+    return this.http.get<Application[]>(`${this.baseUrl}/dashboard/ranking/app/classification/negativo`);
+  }
+}

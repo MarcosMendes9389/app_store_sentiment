@@ -86,3 +86,46 @@ exports.updateAppById = async function(_id, app){
     const result = await dbo.collection(appsCollection).updateOne(query, updateQuery);
     return result;
 }
+
+exports.findClassificationAppDatebyHour = async function () {
+    const db = await MongoClient.connect(url, mongodbOptions);
+    const dbo = db.db(dataBase);
+    const result = await dbo.collection(reviewsCollection).aggregate([
+        { $match: { store: "google", classification : { $exists: true } } },
+        { $project : {  _id : 0, classification: "$classification", appId: "$appId" ,
+                            datePartDay : {"$concat" : [
+                                                {"$substr" : [{"$dayOfMonth" : "$date"}, 0, 2]}, "-",
+                                                {"$substr" : [{"$month" : "$date"}, 0, 2]}, "-",
+                                                {"$substr" : [{"$year" : "$date"}, 0, 4]}
+                                                        ] }
+                      }
+        },
+        { $group: { _id: { classification: "$classification", app: "$appId" , date :"$datePartDay"}, 
+                    count: { $sum: 1 } }
+        },
+        { $sort : { "_id.date": 1 } }
+        ]).toArray()
+    return result;
+}
+
+exports.findRankingAppClassificationPositivo = async function () {
+    const db = await MongoClient.connect(url, mongodbOptions);
+    const dbo = db.db(dataBase);
+    const result = await dbo.collection(reviewsCollection).aggregate([
+        { $match: { classification: "Positivo" } },
+        { $group: { _id: {app: "$appId" , classification: "$classification"} , count: { $sum: 1 } }},
+        { $sort : { count: 1 } }
+        ]).toArray()
+    return result;
+}
+
+exports.findRankingAppClassificationNegativo = async function () {
+    const db = await MongoClient.connect(url, mongodbOptions);
+    const dbo = db.db(dataBase);
+    const result = await dbo.collection(reviewsCollection).aggregate([
+        { $match: { classification: "Negativo" } },
+        { $group: { _id: {app: "$appId" , classification: "$classification"} , count: { $sum: 1 } }},
+        { $sort : { count: 1 } }
+        ]).toArray()
+    return result;
+}

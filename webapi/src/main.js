@@ -6,15 +6,16 @@ const morgan = require("morgan")
 const bodyParser = require("body-parser")
 const cors = require("cors")
 
-const app = express()
+const  expressApplication = express()
 
-app.use(cors())
-app.use(morgan("dev"))
-app.use(bodyParser.json())
+expressApplication.use(cors())
+expressApplication.use(morgan("dev"))
+expressApplication.use(bodyParser.json())
 
-app.use("/app",require("./app").router)
-app.use("/review",require("./review").router)
+expressApplication.use("/app",require("./app").router)
+expressApplication.use("/review",require("./review").router)
+expressApplication.use("/dashboard",require("./dashboard").router)
 
-app.listen(config.server.port, _ => {
+expressApplication.listen(config.server.port, _ => {
   console.log("server online")
 }) 

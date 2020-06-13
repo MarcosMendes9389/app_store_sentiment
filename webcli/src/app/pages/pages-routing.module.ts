@@ -14,7 +14,7 @@ const routes: Routes = [{
         .then(m => m.UiFeaturesModule),
     },
     {
-      path: 'charts',
+      path: 'dashboard',
       loadChildren: () => import('./charts/charts.module')
         .then(m => m.ChartsModule),
     },
