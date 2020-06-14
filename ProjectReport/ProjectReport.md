@@ -168,10 +168,20 @@ O intuito da API é manter o cadastro dos apps no banco de dados. Um processo ag
 
 #### Tela de Listagem dos Comentários
 
-
 <img src="./Images/TelaListagemReviews.jpg" width="500" height="350">
 
 *NOTA: Para o frontend foi usado o framework Angular;
+
+### Telas de DashBoard
+
+Usando os filtros por App é possível relacionar uma pior ou mehor avalia com base nas avaliações dos usuários. Usando a relação scores por App obtem-se os indicadores exibidos nos paineis.
+
+ 
+#### Painel de Indicadores por Loja e APP
+
+<img src="./Images/SentimentPizza.jpg" width="500" height="350">
+
+Com painel mostrado acima é possível relacionar a qualificação de um App por loja.
 
 ## Controle de Versão e Repositório
 
