@@ -179,7 +179,7 @@ Usando os filtros por App é possível relacionar uma pior ou mehor avalia com b
  
 #### Painel de Indicadores por Loja e APP
 
-<img src="./Images/SentimentPizza.jpg" width="500" height="350">
+<img src="./Images/SentimentPizza.jpg" width="550" height="350">
 
 Com painel mostrado acima é possível relacionar a qualificação de um App por loja.
 
