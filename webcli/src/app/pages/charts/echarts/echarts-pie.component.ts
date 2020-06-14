@@ -74,8 +74,8 @@ export class EchartsPieComponent implements AfterViewInit, OnDestroy {
               radius: '80%',
               center: ['50%', '50%'],
               data: [
-                { value: this.listPositivos.find(obj => obj.app === this.selectedApp.id ).qty , name: 'Positivo' },
                 { value: this.listNegativos.find(obj => obj.app === this.selectedApp.id ).qty, name: 'Negativo' },
+                { value: this.listPositivos.find(obj => obj.app === this.selectedApp.id ).qty , name: 'Positivo' },
               ],
               itemStyle: {
                 emphasis: {
