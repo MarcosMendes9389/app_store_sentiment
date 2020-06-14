@@ -185,7 +185,7 @@ Com painel mostrado acima é possível relacionar a qualificação de um App por
 
 #### Painel de Ranking de App por Loja
 
-<img src="./Images/RakingPositividade.jpg" width="600" height="350">
+<img src="./Images/RakingPositividade.jpg" width="400" height="350">
 
 Comparativo da quantidade de avaliações negativas por loja usado como parâmetro o app Whastapp;
 
