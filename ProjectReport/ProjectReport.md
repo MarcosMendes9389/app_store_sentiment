@@ -183,6 +183,12 @@ Usando os filtros por App é possível relacionar uma pior ou mehor avalia com b
 
 Com painel mostrado acima é possível relacionar a qualificação de um App por loja.
 
+#### Painel de Ranking de App por Loja
+
+<img src="./Images/RakingPositividade.jpg" width="600" height="350">
+
+Comparativo da quantidade de avaliações negativas por loja usado como parâmetro o app Whastapp;
+
 ## Controle de Versão e Repositório
 
 Para controle de versão foi usado a ferramenta Git e para hospedagem de o projeto foi usada a plataforma Github. Onde para cada participante do projeto foi criada uma Branch. 
