@@ -1,5 +1,5 @@
 # app_store_sentiment
-## Opinio Mining Project!
+## Sentiment Analysis API!
 
 Feelings, as well as concepts related to assessment, attitude, emotion and humor substantially influence human behavior. Our beliefs and perceptions about reality, as well as our choices, are very conditioned by the way other people see and perceive the world. Our view of the world often influences other people's views and opinions. And that doesn't just happen with individuals, but also with companies. And so, more and more, companies are listening and perceiving other companies and using their products and services. It is a sentiment analysis function, also known as opinion mining.
 
