@@ -11,7 +11,6 @@ import { GeneralService } from '../../../@core/services/general.service';
 })
 export class ReviewComponent {
 
-  //reviews
   reviews: Review[] = [];
 
   settings = {

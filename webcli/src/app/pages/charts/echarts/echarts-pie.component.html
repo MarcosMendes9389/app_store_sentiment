@@ -1,0 +1,10 @@
+<nb-card>
+  <nb-card-header>
+    <nb-select [selected]="selectedApp" (selectedChange)="changeApp($event)">
+      <nb-option *ngFor="let app of apps" [value]="app">{{ app.name + ' - ' + app.store }} </nb-option>
+    </nb-select>
+  </nb-card-header>
+  <nb-card-body>
+    <div echarts [options]="options" class="echart"></div>
+  </nb-card-body>
+</nb-card>

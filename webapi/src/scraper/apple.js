@@ -17,6 +17,7 @@ exports.getAppReview = async function(app){
                 doc.text = review.text;
                 doc.score = review.score;
                 doc.app = app.name;
+                doc.appId = app.id;
                 doc.store = 'apple';
                 mongo.insertReview(doc);
               }

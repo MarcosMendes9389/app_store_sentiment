@@ -16,7 +16,7 @@ router.post("/save", async (req,res) => {
 router.put("/update", async (req,res) => {
     let app = req.body
     app = await mongo.updateAppById(app._id, app)
-    res.send(app.ops[0])
+    res.send(app.result)
 })
 
 router.delete("/delete/:id", async (req,res) => {

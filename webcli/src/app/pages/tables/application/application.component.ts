@@ -11,7 +11,6 @@ import { Application } from '../../../@core/models/application';
 })
 export class ApplicationComponent {
 
-  //application
   applications: Application[] = [];
 
   settings = {
@@ -68,6 +67,8 @@ export class ApplicationComponent {
     if (window.confirm('Tem certeza que deseja deletar?')) {
       this.servicegeneral.delete(event.data._id).subscribe(()=>{
         event.confirm.resolve();
+      }, err => {
+        event.confirm.reject();
       });
     } else {
       event.confirm.reject();
@@ -76,8 +77,10 @@ export class ApplicationComponent {
 
   onEditConfirm(event): void {
     if (window.confirm('Tem certeza que deseja editar?')) {
-      this.servicegeneral.update(event.newData).subscribe(()=>{
+      this.servicegeneral.updateApp(event.newData).subscribe(()=>{
         event.confirm.resolve();
+      }, err => {
+        event.confirm.reject();
       });
     } else {
       event.confirm.reject();
@@ -86,8 +89,10 @@ export class ApplicationComponent {
 
   onCreateConfirm(event): void {
     if (window.confirm('Tem certeza que deseja salvar?')) {
-      this.servicegeneral.save(event.newData).subscribe(result=>{
-        event.confirm.resolve(result);
+      this.servicegeneral.saveApp(event.newData).subscribe(()=>{
+        event.confirm.resolve();
+      }, err => {
+        event.confirm.reject();
       });
     } else {
       event.confirm.reject();
