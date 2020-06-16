@@ -210,6 +210,18 @@ Percentual de positivo de negativo filtrado por App e loja.
 
 Análise temporal do número de comentários positivos e negativos, apenas para aplicativos da Play Store, com filtro por apps;
 
+#### Painel de Histograma por Amostra Qualitativa
+
+<img src="./Images/HistogramaQualitativo.jpg" width="500" height="350">
+
+Histograma de estrelas, com filtro de apps.
+
+#### Junção de Pespetivas
+
+<img src="./Images/JuncaoAnalise2.jpg" width="600" height="450">
+
+Painel com uma união de diferentes visões.
+
 ## Controle de Versão e Repositório
 
 Para controle de versão foi usado a ferramenta Git e para hospedagem de o projeto foi usada a plataforma Github. Onde para cada participante do projeto foi criada uma Branch. 
