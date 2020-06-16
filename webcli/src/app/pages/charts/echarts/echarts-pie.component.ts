@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { GeneralService } from '../../../@core/services/general.service';
-import { Review } from '../../../@core/models/review';
 import { Application } from '../../../@core/models/application';
 
 @Component({
@@ -11,13 +10,10 @@ import { Application } from '../../../@core/models/application';
 export class EchartsPieComponent implements AfterViewInit, OnDestroy {
   options: any = {};
   themeSubscription: any;
-  reviews: Review[] = [];
   apps: Application[] = [];
   selectedApp: Application;
   listPositivos: any[] = [];
   listNegativos: any[] = [];
-  
-
 
   constructor(private theme: NbThemeService,
     private servicegeneral : GeneralService,) {
@@ -26,15 +22,24 @@ export class EchartsPieComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
       this.servicegeneral.listApps().subscribe(apps => {
         this.apps = apps;
-        this.servicegeneral.listReviews().subscribe(result => {
-          this.reviews = result;
-          this.apps.forEach(app => {
-            this.listPositivos.push({app: app.id, qty: this.reviews.filter(review => review.appId === app.id && review.classification === 'Positivo').length});
-            this.listNegativos.push({app: app.id, qty: this.reviews.filter(review => review.appId === app.id && review.classification === 'Negativo').length});
+        this.servicegeneral.listRankingAppClassificationPositivo().subscribe(resultPos => {
+          this.servicegeneral.listRankingAppClassificationNegativo().subscribe(resultNeg => {
+            this.apps.forEach(app => {
+              let elemPos = resultPos.find(element => element._id.app === app.id);
+              let totalPos: number;
+              if(elemPos) totalPos = elemPos.count;
+              else totalPos = 0;
+              let elemNeg = resultNeg.find(element => element._id.app === app.id);
+              let totalNeg: number ;
+              if(elemNeg) totalNeg = elemNeg.count;
+              else totalNeg = 0;
+              this.listPositivos.push({app: app.id, qty: totalPos});
+              this.listNegativos.push({app: app.id, qty: totalNeg});
           });  
           this.selectedApp = apps[0];
           this.rederizeChart();
         });  
+      });  
         
       });
   }

@@ -39,11 +39,11 @@ export class GeneralService {
     return this.http.get<Application[]>(`${this.baseUrl}/dashboard/google/classification/app/date`);
   }
 
-  listRankingAppClassificationPositivo(): Observable<Application[]> {
+  listRankingAppClassificationPositivo(): Observable<any[]> {
     return this.http.get<Application[]>(`${this.baseUrl}/dashboard/ranking/app/classification/positivo`);
   }
 
-  listRankingAppClassificationNegativo(): Observable<Application[]> {
+  listRankingAppClassificationNegativo(): Observable<any[]> {
     return this.http.get<Application[]>(`${this.baseUrl}/dashboard/ranking/app/classification/negativo`);
   }
 }
