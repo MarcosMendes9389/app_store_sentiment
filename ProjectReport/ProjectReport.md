@@ -178,6 +178,8 @@ Através da Ferramenta [Echarts](https://echarts.apache.org/en/index.html) da Ap
 Usando os filtros por App é possível relacionar uma pior ou melhor avalia com base nas avaliações dos usuários. Como por exemplo cruzar uma relação de scores por estrelas (amostra qualitativa) agrupando por App onde obtem-se os indicadores exibidos nos paineis.
 O Echarts é uma poderosa ferramenta que proporciona a criação de uma imensa quantidade de painéis, dependendo da necessidade. Exemplos podem ser visto no [link](https://echarts.apache.org/examples/en/index.html).
 
+Abaixo são apresentados alguns modelos desenvolvidos com o Echarts possibilitados em razão do esforço de classificação.
+
 #### Painel de Indicadores por Loja e APP
 
 <img src="./Images/SentimentPizza.jpg" width="600" height="350">
