@@ -196,6 +196,12 @@ Comparativo da quantidade de avaliações negativas por loja usado como parâmet
 
 <img src="./Images/GraficoPizzaApple.jpg" width="400" height="350">       <img src="./Images/GraficoPizzaGoogle.jpg" width="400" height="350">   
 
+Percentual de positivo de negativo filtrado por App e loja.
+
+#### Painel de Raking de Positividade
+
+<img src="./Images/PercentualApps.jpg" width="600" height="350">
+
 ## Controle de Versão e Repositório
 
 Para controle de versão foi usado a ferramenta Git e para hospedagem de o projeto foi usada a plataforma Github. Onde para cada participante do projeto foi criada uma Branch. 
