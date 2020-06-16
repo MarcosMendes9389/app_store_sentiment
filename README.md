@@ -2,29 +2,24 @@
 
 ## To Run
 
-1. In folder **/webcli** start the front end in AgularJS, execute :
-    ```$ ng serve```
-Obs: (Execute ```$ npm install``` before) 
+1. In folder **/webcli** start the front end in AgularJS, execute : ```$ ng serve```  
+Obs: (Execute ```$ npm install``` before)  
 It will started in 'http://localhost:4200'
 
-2. In folder **/webapi/src** start the back end in NodeJS, execute :
-```$ node main.js``` 
+2. In folder **/webapi/src** start the back end in NodeJS, execute : ```$ node main.js```  
 It will started in http://localhost:3000
 
-3. In http://localhost:4200/pages/tables/application register some app as in the example
+3. In http://localhost:4200/pages/tables/application register some app as in the example:  
 Loja: google, Nome: WhatsApp, App ID: com.whatsapp
 
-4. In foldder  **/webapi/src/scraper** execute: 
-```$ node main .js```
+4. In foldder  **/webapi/src/scraper** execute: ```$ node main .js```  
 to extract reviews for each registered app.
 
-5. In folder **/analisy/src**, execute : 
-```$ python GenerateCommitteeModels.py``` 
-to generate classification models.
+5. In folder **/analisy/src**, execute : ```$ python GenerateCommitteeModels.py```  
+to generate classification models.  
 Obs: It will only be necessary to run the first time to generate the models.
 
-6. In folder **/analisy/src**, execute : 
-```$ python ClassifyReviews.py``` 
+6. In folder **/analisy/src**, execute : ```$ python ClassifyReviews.py```  
 to classify pending classification reviews
 
 ### About Database
