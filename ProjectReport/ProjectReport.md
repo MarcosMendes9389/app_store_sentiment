@@ -194,7 +194,7 @@ Comparativo da quantidade de avaliações negativas por loja usado como parâmet
 
 #### Painel de Percentualidade de Classificação
 
-<img src="./Images/GraficoPizzaApple.jpg" width="300" height="250">   <img src="./Images/GraficoPizzaGoogle.jpg" width="300" height="250">   
+<img src="./Images/GraficoPizzaApple.jpg" width="400" height="350">       <img src="./Images/GraficoPizzaGoogle.jpg" width="400" height="350">   
 
 ## Controle de Versão e Repositório
 
