@@ -218,7 +218,7 @@ Histograma de estrelas, com filtro de apps.
 
 #### Junção de Pespetivas
 
-<img src="./Images/JuncaoAnalise2.jpg" width="650" height="450">
+<img src="./Images/JuncaoAnalise2.jpg" width="700" height="450">
 
 Painel com uma união de diferentes visões.
 
