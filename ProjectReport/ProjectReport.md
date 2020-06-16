@@ -202,6 +202,14 @@ Percentual de positivo de negativo filtrado por App e loja.
 
 <img src="./Images/PercentualApps.jpg" width="500" height="350">
 
+5 maiores percentuais de avaliação positiva.
+
+#### Painel de Análise temporal
+
+<img src="./Images/QuantitativoTempo.jpg" width="500" height="350">
+
+Análise temporal do número de comentários positivos e negativos, apenas para aplicativos da Play Store, com filtro por apps;
+
 ## Controle de Versão e Repositório
 
 Para controle de versão foi usado a ferramenta Git e para hospedagem de o projeto foi usada a plataforma Github. Onde para cada participante do projeto foi criada uma Branch. 
