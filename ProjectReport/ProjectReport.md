@@ -192,7 +192,9 @@ Com o painel mostrado acima é possível relacionar a qualificação de um App p
 
 Comparativo da quantidade de avaliações negativas por loja usado como parâmetro o app Whastapp;
 
-#### 
+#### Painel de Percentualidade de Classificação
+
+<img src="./Images/GraficoPizzaApple.jpg" width="300" height="250">   <img src="./Images/GraficoPizzaGoogle.jpg" width="300" height="250">   
 
 ## Controle de Versão e Repositório
 
