@@ -174,20 +174,23 @@ O intuito da API é manter o cadastro dos apps no banco de dados. Um processo ag
 
 ### Telas de DashBoard
 
-Usando os filtros por App é possível relacionar uma pior ou mehor avalia com base nas avaliações dos usuários. Usando a relação scores por App obtem-se os indicadores exibidos nos paineis.
+Através da Ferramenta [Echarts](https://echarts.apache.org/en/index.html) da Apache é possível desenvolver diversos painéis.
+Usando os filtros por App é possível relacionar uma pior ou melhor avalia com base nas avaliações dos usuários. Como por exemplo cruzar uma relação de scores por estrelas (amostra qualitativa) agrupando por App onde obtem-se os indicadores exibidos nos paineis.
+O Echarts é uma poderosa ferramenta que proporciona a criação de uma imensa quantidade de painéis, dependendo da necessidade. Exemplos podem ser visto no [link](https://echarts.apache.org/examples/en/index.html).
 
- 
 #### Painel de Indicadores por Loja e APP
 
 <img src="./Images/SentimentPizza.jpg" width="600" height="350">
 
-Com painel mostrado acima é possível relacionar a qualificação de um App por loja.
+Com o painel mostrado acima é possível relacionar a qualificação de um App por loja.
 
 #### Painel de Ranking de App por Loja
 
 <img src="./Images/RakingPositividade.jpg" width="400" height="350">
 
 Comparativo da quantidade de avaliações negativas por loja usado como parâmetro o app Whastapp;
+
+#### 
 
 ## Controle de Versão e Repositório
 
