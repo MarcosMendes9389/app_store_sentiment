@@ -12,20 +12,20 @@
 
 It classify new entries in file in command line and show the result
 
-This option can be performed directly by the file 'ClassifyCliEntry.py'
+This option can be performed directly by the file **ClassifyCliEntry.py**
 
 #### Option 2 - Generate Models
 
 It performs the training of algorithms (Logistic Regression, Multinomial Naive Bayes and SGD) and saves the model for each one, as well as executes the committee to verify the result based on the vote.
 
-This option can be performed directly by the file 'GenerateCommitteeModels.py'
+This option can be performed directly by the file **GenerateCommitteeModels.py**
 
 
 #### Option 3 - Classify Pending Reviews
 
-It get unrated reviews from the mongoDB 'reviews' collection to sort and save the 'classification' attribute according to the rating of the models saved in the previous step
+It get unclassified reviews from the mongoDB 'reviews' collection to sort and save the 'classification' attribute according to the rating of the models saved in the previous step
 
-This option can be performed directly by the file 'ClassifyReviews.py'
+This option can be performed directly by the file **ClassifyReviews.py**
 
 #### Option 4 - Exit
 

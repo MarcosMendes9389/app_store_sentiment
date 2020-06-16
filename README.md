@@ -1,5 +1,41 @@
 # app_store_sentiment
 
+## To Run
+
+1. In folder **/webcli** start the front end in AgularJS, execute :
+    ```$ ng serve```
+Obs: (Execute ```$ npm install``` before) 
+It will started in 'http://localhost:4200'
+
+2. In folder **/webapi/src** start the back end in NodeJS, execute :
+```$ node main.js``` 
+It will started in http://localhost:3000
+
+3. In http://localhost:4200/pages/tables/application register some app as in the example
+Loja: google, Nome: WhatsApp, App ID: com.whatsapp
+
+4. In foldder  **/webapi/src/scraper** execute: 
+```$ node main .js```
+to extract reviews for each registered app.
+
+5. In folder **/analisy/src**, execute : 
+```$ python GenerateCommitteeModels.py``` 
+to generate classification models.
+Obs: It will only be necessary to run the first time to generate the models.
+
+6. In folder **/analisy/src**, execute : 
+```$ python ClassifyReviews.py``` 
+to classify pending classification reviews
+
+### About Database
+
+- Database: mongoDB
+- Database name: app_sentiment
+- Database host: localhost
+- Database port: 27017
+- Initial collection mandatory: **apps** (if you run scraper in webapi, it will create a collection **reviews**)
+
+
 ## Directories
 
 ### Analisy
@@ -18,17 +54,5 @@
 - Scraper: it gets reviews from play store and aple store 
 - See more detail in [README.md](https://github.com/MarcosMendes9389/app_store_sentiment/blob/master/webapi/README.md)
 
-### About Database
-
-- Database: mongoDB
-- Database name: app_sentiment
-- Database host: localhost
-- Database port: 27017
-- Initial collection mandatory: apps (if you run scraper in webapi, it will create a collection reviews)
 
 ### See more detail about whole project in [ProjectReport.md](https://github.com/MarcosMendes9389/app_store_sentiment/blob/master/ProjectReport/ProjectReport.md)
-
-
-Feelings, as well as concepts related to assessment, attitude, emotion and humor substantially influence human behavior. Our beliefs and perceptions about reality, as well as our choices, are very conditioned by the way other people see and perceive the world. Our view of the world often influences other people's views and opinions. And that doesn't just happen with individuals, but also with companies. And so, more and more, companies are listening and perceiving other companies and using their products and services. It is a sentiment analysis function, also known as opinion mining.
-
-It is on this concept and trend that this work is based on the objective of making a sentiment analysis through an API which evaluates the comments of the users' reviews made to the main Android and IOS applications.

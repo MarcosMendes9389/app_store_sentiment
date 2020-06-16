@@ -1,8 +1,12 @@
 # Back End and Scraper
 
 ### Start server
-- In folder 'src/', run main.js, the server will start on port 3000
+- In folder **./src/**, execute
+```$ node main.js``` 
+to start the server on port **3000**
 
 ### Scraper
 
-- In folder 'src/scraper/', run main.js. It gets the app's reviews in apps  collection on mongoDB
+- In folder **./src/scraper/**, execute
+```$ node main.js``` 
+It gets the app's reviews registered in apps collection on mongoDB
