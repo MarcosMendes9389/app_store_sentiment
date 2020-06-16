@@ -27,12 +27,13 @@ exports.getAppReview = async function(app){
     console.log('Finished Save reviews for : ' + app.name + ' - ' + app.store );
 }
 
-
 exports.getAppInfo = function(app){
     console.log('Collecting App Info for : ' + app.name + ' - ' + app.store );
-    store.app({id: app.id})
+    store.app({id: app.id, ratings: true})
     .then((info) => { 
         console.log('Saving App Info for : ' + app.name + ' - ' + app.store );
-        mongo.updateApp(app.id, info);
+        mongo.updateApp(app.id, {histogram: info.histogram});
+    }).catch(error => {
+        console.log('Problem with get info Apple')
     });
 }

@@ -29,7 +29,7 @@ exports.getAppInfo = function(app){
   gplay.app({appId: app.id})
   .then((info) => { 
     console.log('Saving App Info for : ' + app.name + ' - ' +app.store );
-      mongo.updateApp(app.id, info);
+    mongo.updateApp(app.id, {histogram: info.histogram});
   }).catch(error => {
     console.log('Problem with get info Google Play')
   });

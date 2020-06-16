@@ -4,6 +4,7 @@ export class Application {
     name: string;
     primaryGenre: string;
     free: string;
+    histogram: any;
 
     constructor(){}
 

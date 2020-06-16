@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
-import { Review } from '../../../@core/models/review';
 import { Application } from '../../../@core/models/application';
 import { GeneralService } from '../../../@core/services/general.service';
 
@@ -32,16 +31,29 @@ export class EchartsBarComponent implements AfterViewInit, OnDestroy {
         this.servicegeneral.listRankingAppClassificationNegativo().subscribe(resultNeg => {
           this.dataNeg = resultNeg;
           this.apps.forEach(app => {
-            let totalPos = this.dataPos.find(element => element._id.app === app.id).count;
-            let totalNeg = this.dataNeg.find(element => element._id.app === app.id).count;
-            this.appsPosNamePercent.push({app: app.name + ' - ' + app.store, percent: (totalPos / (totalPos + totalNeg)*100).toFixed(2) });
+            let elemPos = this.dataPos.find(element => element._id.app === app.id);
+            let totalPos: number;
+            if(elemPos) totalPos = elemPos.count;
+            else totalPos = 0;
+            let elemNeg = this.dataNeg.find(element => element._id.app === app.id);
+            let totalNeg: number ;
+            if(elemNeg) totalNeg = elemNeg.count;
+            else totalNeg = 0;
+
+            if((totalPos + totalNeg) === 0){
+              this.appsPosNamePercent.push({app: app.name + ' - ' + app.store, percent: 0 });
+              this.appsNegNamePercent.push({app: app.name + ' - ' + app.store, percent: 0 });
+
+            } else {
+              this.appsPosNamePercent.push({app: app.name + ' - ' + app.store, percent: (totalPos / (totalPos + totalNeg)*100).toFixed(2) });
+              this.appsNegNamePercent.push({app: app.name + ' - ' + app.store, percent: (totalNeg / (totalPos + totalNeg)*100).toFixed(2) });
+            }
             this.appsPosNamePercent.sort((item1, item2) =>{
                         if(item1.percent > item2.percent) return -1;
                         return 1;
             });
-            this.appsPosNamePercent = this.appsPosNamePercent.slice(0,this.QTY_RANKING);
 
-            this.appsNegNamePercent.push({app: app.name + ' - ' + app.store, percent: (totalNeg / (totalPos + totalNeg)*100).toFixed(2) });
+            this.appsPosNamePercent = this.appsPosNamePercent.slice(0,this.QTY_RANKING);
             this.appsNegNamePercent.sort((item1, item2) =>{
                         if(item1.percent > item2.percent) return -1;
                         return 1;
