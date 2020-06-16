@@ -200,7 +200,7 @@ Percentual de positivo de negativo filtrado por App e loja.
 
 #### Painel de Raking de Positividade
 
-<img src="./Images/PercentualApps.jpg" width="600" height="350">
+<img src="./Images/PercentualApps.jpg" width="500" height="350">
 
 ## Controle de Versão e Repositório
 
