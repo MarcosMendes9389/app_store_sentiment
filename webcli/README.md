@@ -1,6 +1,6 @@
 # Angular Client
 
-**Used to show reviews and apps in tables**
+- **Used to show reviews and apps in tables**
 
 Start the front end in AgularJS, execute : ```$ ng serve```  
 Obs: (Execute ```$ npm install``` before)  
