@@ -164,14 +164,63 @@ O intuito da API é manter o cadastro dos apps no banco de dados. Um processo ag
 
 #### Tela de Cadastro, listagem e exclusão dos Apps
 
-<img src="./Images/TelaCadastroApps.jpg" width="500" height="350">
+<img src="./Images/TelaCadastroApps.jpg" width="600" height="350">
 
 #### Tela de Listagem dos Comentários
 
-
-<img src="./Images/TelaListagemReviews.jpg" width="500" height="350">
+<img src="./Images/TelaListagemReviews.jpg" width="600" height="350">
 
 *NOTA: Para o frontend foi usado o framework Angular;
+
+### Telas de DashBoard
+
+Através da Ferramenta [Echarts](https://echarts.apache.org/en/index.html) da Apache é possível desenvolver diversos painéis.
+Usando os filtros por App é possível relacionar uma pior ou melhor avalia com base nas avaliações dos usuários. Como por exemplo cruzar uma relação de scores por estrelas (amostra qualitativa) agrupando por App onde obtem-se os indicadores exibidos nos paineis.
+O Echarts é uma poderosa ferramenta que proporciona a criação de uma imensa quantidade de painéis, dependendo da necessidade. Exemplos podem ser visto no [link](https://echarts.apache.org/examples/en/index.html).
+
+Abaixo são apresentados alguns modelos desenvolvidos com o Echarts possibilitados em razão do esforço de classificação.
+
+#### Painel de Indicadores por Loja e APP
+
+<img src="./Images/SentimentPizza.jpg" width="600" height="350">
+
+Com o painel mostrado acima é possível relacionar a qualificação de um App por loja.
+
+#### Painel de Ranking de App por Loja
+
+<img src="./Images/RakingPositividade.jpg" width="400" height="350">
+
+Comparativo da quantidade de avaliações negativas por loja usado como parâmetro o app Whastapp;
+
+#### Painel de Percentualidade de Classificação
+
+<img src="./Images/GraficoPizzaApple.jpg" width="400" height="350">       <img src="./Images/GraficoPizzaGoogle.jpg" width="400" height="350">   
+
+Percentual de positivo de negativo filtrado por App e loja.
+
+#### Painel de Raking de Positividade
+
+<img src="./Images/PercentualApps.jpg" width="500" height="350">
+
+5 maiores percentuais de avaliação positiva.
+
+#### Painel de Análise temporal
+
+<img src="./Images/QuantitativoTempo.jpg" width="500" height="350">
+
+Análise temporal do número de comentários positivos e negativos, apenas para aplicativos da Play Store, com filtro por apps;
+
+#### Painel de Histograma por Amostra Qualitativa
+
+<img src="./Images/HistogramaQualitativo.jpg" width="500" height="350">
+
+Histograma de estrelas, com filtro de apps.
+
+#### Junção de Pespetivas
+
+<img src="./Images/JuncaoAnalise2.jpg" width="700" height="450">
+
+Painel com uma união de diferentes visões.
 
 ## Controle de Versão e Repositório
 
