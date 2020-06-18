@@ -17,14 +17,14 @@ def getConection():
 def countReviewsPendingClassification():
    global client
    reviews = getConection()[reviewsCollection]
-   result = reviews.count_documents({'classification' : None})
+   result = reviews.count_documents({'classification' : None, 'text': {"$ne":None}})
    client.close()
    return result
 
 def getReviewsPendingClassification():
    global client
    reviews = getConection()[reviewsCollection]
-   result = reviews.find({'classification' : None})
+   result = reviews.find({'classification' : None, 'text': {"$ne":None}})
    client.close()
    return result
 
