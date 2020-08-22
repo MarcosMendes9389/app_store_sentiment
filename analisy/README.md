@@ -20,7 +20,6 @@ It performs the training of algorithms (Logistic Regression, Multinomial Naive B
 
 This option can be performed directly by the file **GenerateCommitteeModels.py**
 
-
 #### Option 3 - Classify Pending Reviews
 
 It get unclassified reviews from the mongoDB 'reviews' collection to sort and save the 'classification' attribute according to the rating of the models saved in the previous step
