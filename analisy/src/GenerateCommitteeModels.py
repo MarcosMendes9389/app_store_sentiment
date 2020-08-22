@@ -118,10 +118,15 @@ def load_data_set():
 def downloadDataset():
    
    print('Downloading Dataset ...')
-   dataset = urllib.request.urlopen('https://ucb1188cceb2adcc632726a825a0.dl.dropboxusercontent.com/cd/0/get/A4mpVvN8m7Lw_VR4ebQHk7y4ShvJRKlCtFaVt6lEogF8o5EV5ZC3Kl-r4t7OtnllkyrMTvvW1uGulmfjGSHMtzFKcpuBjdqLcBSx5snY7mzDMzipKzv3RjKMdhYhwuQNTss/file?dl=1#')
-   with open('../data/imdb-reviews-pt-br.csv','wb') as output:
-      output.write(dataset.read())
-
+   try:
+      dataset = urllib.request.urlopen('https://doc-0o-4o-docs.googleusercontent.com/docs/securesc/3vpqs5mbqqoq12m7ar7v0naqhp6fn6i7/m3atgc5ukoshplnt58u6u3th122ha21k/1598108475000/09024457658019831713/17437208150563956093Z/1c9mevJHx-sAwAUT-qRwYXVfyBIDhITc6?e=download&nonce=h0pd8d6250724&user=17437208150563956093Z&hash=tim3lrlcnbl0157m7tde31pbf120en7u')
+      with open('../data/imdb-reviews-pt-br.csv','wb') as output:
+         output.write(dataset.read())
+   except:
+      print("Download Error - Please do download manualy on link : https://drive.google.com/file/d/1c9mevJHx-sAwAUT-qRwYXVfyBIDhITc6/view")
+      print("And put in folder '../data/' with the name 'imdb-reviews-pt-br.csv' ")
+      exit(1) 
+   
 def save_model(algorithm, vectorizer, accuracy, model_name):
     # Saving model
     print('Saving model ' + model_name)
