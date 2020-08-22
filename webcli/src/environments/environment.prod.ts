@@ -5,4 +5,5 @@
  */
 export const environment = {
   production: true,
+  WEBAPI_URL: 'http://localhost:3000'
 };

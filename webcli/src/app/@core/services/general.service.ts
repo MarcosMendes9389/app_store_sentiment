@@ -3,13 +3,14 @@ import { Review } from '../models/review';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Application } from '../models/application';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GeneralService {
 
-  readonly baseUrl: string = 'http://localhost:3000';
+  readonly baseUrl = environment.WEBAPI_URL;
 
   constructor(
     private http: HttpClient
